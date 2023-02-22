@@ -1,7 +1,15 @@
 import "./App.css";
+import { Header, Nav, Main, Footer } from "./components";
 
 function App() {
-  <div>Homepage</div>;
+  return (
+    <>
+      <Header />
+      <Nav />
+      <Main />
+      <Footer />
+    </>
+  );
 }
 
 export default App;
