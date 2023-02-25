@@ -1,29 +1,74 @@
 import React from "react";
+import { Box, Link, Grid } from "@mui/material";
+
+import ComapnyLogo from "../assets/Logo.svg";
 
 const Nav = () => {
   return (
-    <>
-      <ul>
-        <li>
-          <a href="/">Home</a>
-        </li>
-        <li>
-          <a href="/About">About</a>
-        </li>
-        <li>
-          <a href="/Menu">Menu</a>
-        </li>
-        <li>
-          <a href="/Reservation">Reservation</a>
-        </li>
-        <li>
-          <a href="/Order">Order Online</a>
-        </li>
-        <li>
-          <a href="/Login">Login</a>
-        </li>
-      </ul>
-    </>
+    <Grid
+      item
+      lg={12}
+      container
+      sx={{ alignItems: "center", textAlign: "center" }}
+    >
+      <Grid item lg={2} />
+      <Grid item lg={2}>
+        <Box>
+          <img src={ComapnyLogo} alt="Company Logo" className="logo" />
+        </Box>
+      </Grid>
+      <Grid item lg={6} container sx={{ justifyContent: "space-around" }}>
+        <Link
+          href="/"
+          color="primary"
+          underline="hover"
+          sx={{ margin: "1rem" }}
+        >
+          Home
+        </Link>
+        <Link
+          href="/"
+          color="primary"
+          underline="hover"
+          sx={{ margin: "1rem" }}
+        >
+          About
+        </Link>
+        <Link
+          href="/"
+          color="primary"
+          underline="hover"
+          sx={{ margin: "1rem" }}
+        >
+          Menu
+        </Link>
+        <Link
+          href="/reservation"
+          color="primary"
+          underline="hover"
+          sx={{ margin: "1rem" }}
+        >
+          Reservation
+        </Link>
+        <Link
+          href="/login"
+          color="primary"
+          underline="hover"
+          sx={{ margin: "1rem" }}
+        >
+          Order Online
+        </Link>
+        <Link
+          href="/login"
+          color="primary"
+          underline="hover"
+          sx={{ margin: "1rem" }}
+        >
+          Login
+        </Link>
+      </Grid>
+      <Grid item lg={2} />
+    </Grid>
   );
 };
 

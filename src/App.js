@@ -1,14 +1,14 @@
-import "./App.css";
-import { Header, Nav, Main, Footer } from "./components";
+import { Routes, Route } from "react-router-dom";
+import { Home, Reservation, Login, NotFound } from "./pages";
 
 function App() {
   return (
-    <>
-      <Header />
-      <Nav />
-      <Main />
-      <Footer />
-    </>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/reservation" element={<Reservation />} />
+      <Route path="/login" element={<Login />} />
+      <Route path="*" element={<NotFound />} />
+    </Routes>
   );
 }
 
