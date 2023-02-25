@@ -6,7 +6,6 @@ import {
   CardMedia,
   Typography,
   Button,
-  Link,
 } from "@mui/material";
 import restaurantPic from "../assets/restaurant.jpg";
 
@@ -31,9 +30,8 @@ const Main = () => {
             <Typography sx={{ mb: 1.5 }} color="text.secondary">
               Chicago
             </Typography>
-            <Typography variant="body2">
-              Little Lemon is a restaurant located in America. Come and visit
-              us!
+            <Typography variant="body2" align="center" sx={{ py: 12 }}>
+              Little Lemon is a restaurant. <br /> Come and visit us!
             </Typography>
           </CardContent>
           <CardActions sx={{ justifyContent: "center" }}>
@@ -47,7 +45,7 @@ const Main = () => {
         <Card>
           <CardMedia
             component="img"
-            height="400"
+            height="378"
             image={restaurantPic}
             alt="Restaurant environment"
           />

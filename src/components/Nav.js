@@ -5,19 +5,14 @@ import ComapnyLogo from "../assets/Logo.svg";
 
 const Nav = () => {
   return (
-    <Grid
-      item
-      lg={12}
-      container
-      sx={{ alignItems: "center", textAlign: "center" }}
-    >
+    <Grid item lg={12} container sx={{ alignItems: "center" }}>
       <Grid item lg={2} />
       <Grid item lg={2}>
         <Box>
           <img src={ComapnyLogo} alt="Company Logo" className="logo" />
         </Box>
       </Grid>
-      <Grid item lg={6} container sx={{ justifyContent: "space-around" }}>
+      <Grid item lg={6} container sx={{ justifyContent: "space-between" }}>
         <Link
           href="/"
           color="primary"
