@@ -7,31 +7,29 @@ import {
   Typography,
 } from "@mui/material";
 
-import dishIcon from "../assets/Dish icon.svg";
+import dishIcon from "../assets/Logo.svg";
 
 const Footer = () => {
   return (
     <Grid item lg={12} container sx={{ alignItems: "center" }}>
       <Grid item lg={2} />
       <Grid item lg={2}>
-        <Card>
+        <Card elevation={0}>
           <CardMedia
             component="img"
-            height="170"
+            height="auto"
             image={dishIcon}
             alt="Dish Icon"
           />
         </Card>
       </Grid>
+
       <Grid
         item
-        lg={2}
+        lg={1}
         container
         direction="column"
-        sx={{
-          alignContent: "center",
-          alignItems: "center",
-        }}
+        sx={{ alignItems: "center" }}
       >
         <Link
           href="/"
@@ -57,6 +55,8 @@ const Footer = () => {
         >
           Menu
         </Link>
+      </Grid>
+      <Grid item lg={1} container direction="column">
         <Link
           href="/reservation"
           color="primary"
@@ -83,9 +83,11 @@ const Footer = () => {
         </Link>
       </Grid>
       <Grid item lg={2}>
-        <Card elevation={0}>
+        <Card elevation={0} sx={{ minHeight: "148px" }}>
           <CardContent>
-            <Typography variant="h5">Contact</Typography>
+            <Typography variant="h5" mb={2}>
+              Contact
+            </Typography>
             <Typography variant="body2">
               Address: Little Lemon Building
               <br />
@@ -97,9 +99,11 @@ const Footer = () => {
         </Card>
       </Grid>
       <Grid item lg={2}>
-        <Card elevation={0}>
+        <Card elevation={0} sx={{ minHeight: "148px" }}>
           <CardContent>
-            <Typography variant="h5">Social Media</Typography>
+            <Typography variant="h5" mb={2}>
+              Social Media
+            </Typography>
             <Typography variant="body2">
               Facebook: Little Lemon
               <br />
