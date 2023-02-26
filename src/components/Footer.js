@@ -11,7 +11,7 @@ import dishIcon from "../assets/Logo.svg";
 
 const Footer = () => {
   return (
-    <Grid item lg={12} container sx={{ alignItems: "center" }}>
+    <Grid item lg={12} container>
       <Grid item lg={2} />
       <Grid item lg={2}>
         <Card elevation={0}>
@@ -91,7 +91,9 @@ const Footer = () => {
             <Typography variant="body2">
               Address: Little Lemon Building
               <br />
+              <br />
               Phone number: 1234-567
+              <br />
               <br />
               email: littlelemon@email.com
             </Typography>
@@ -106,6 +108,7 @@ const Footer = () => {
             </Typography>
             <Typography variant="body2">
               Facebook: Little Lemon
+              <br />
               <br />
               Instagram: littlelemon
             </Typography>

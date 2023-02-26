@@ -22,16 +22,20 @@ const Main = () => {
     >
       <Grid item lg={2} />
       <Grid item lg={4}>
-        <Card>
+        <Card sx={{ maxHeight: "420px" }}>
           <CardContent>
-            <Typography variant="h5" component="div">
+            <Typography variant="h4" component="div">
               Little Lemon
             </Typography>
             <Typography sx={{ mb: 1.5 }} color="text.secondary">
               Chicago
             </Typography>
-            <Typography variant="body2" align="center" sx={{ py: 12 }}>
-              Little Lemon is a restaurant. <br /> Come and visit us!
+            <Typography variant="body1" align="center" sx={{ py: 12 }}>
+              Little Lemon is a comtemporary restaurant with rich culinary
+              heritage.
+              <br /> It is designed to be a social restaurant with an open
+              kitchen.
+              <br /> Come and visit us!
             </Typography>
           </CardContent>
           <CardActions sx={{ justifyContent: "center" }}>
@@ -45,7 +49,7 @@ const Main = () => {
         <Card>
           <CardMedia
             component="img"
-            height="378"
+            height="420"
             image={restaurantPic}
             alt="Restaurant environment"
           />

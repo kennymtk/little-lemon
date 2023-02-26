@@ -5,7 +5,7 @@ import { Nav, Main, Menu, Footer } from "../components";
 const Home = () => {
   return (
     <Container maxWidth="lg, xl">
-      <Grid container spacing={10}>
+      <Grid container spacing={8}>
         <Nav />
         <Main />
         <Menu />
