@@ -1,122 +1,55 @@
-import {
-  Grid,
-  Card,
-  Link,
-  CardMedia,
-  CardContent,
-  Typography,
-} from "@mui/material";
+import { Box, Grid, Link } from "@mui/material";
+import { useTheme } from "@mui/material/styles";
+import useMediaQuery from "@mui/material/useMediaQuery";
 
-import dishIcon from "../assets/Logo.svg";
+import { links } from "./links";
 
-const Footer = () => {
+import logo from "../assets/Logo.svg";
+
+const Footer = ({ openSidebar }) => {
+  const theme = useTheme();
+  const isBelowMd = useMediaQuery(theme.breakpoints.down("md"));
+
   return (
-    <Grid item lg={12} container>
-      <Grid item lg={2} />
-      <Grid item lg={2}>
-        <Card elevation={0}>
-          <CardMedia
-            component="img"
-            height="auto"
-            image={dishIcon}
-            alt="Dish Icon"
-          />
-        </Card>
-      </Grid>
-
-      <Grid
-        item
-        lg={1}
-        container
-        direction="column"
-        sx={{ alignItems: "center" }}
+    <>
+      <Box
+        display={"flex"}
+        justifyContent={"space-between"}
+        alignItems={"center"}
+        width={"100%"}
+        mb={4}
       >
-        <Link
+        <Box
+          display={"flex"}
+          alignItems="baseline"
+          component="a"
+          underline="none"
           href="/"
-          color="primary"
-          underline="hover"
-          sx={{ margin: "1rem" }}
+          title="little lemon"
+          height={{ xs: 28, md: 32 }}
+          width={45}
         >
-          Home
-        </Link>
-        <Link
-          href="/"
-          color="primary"
-          underline="hover"
-          sx={{ margin: "1rem" }}
-        >
-          About
-        </Link>
-        <Link
-          href="/"
-          color="primary"
-          underline="hover"
-          sx={{ margin: "1rem" }}
-        >
-          Menu
-        </Link>
-      </Grid>
-      <Grid item lg={1} container direction="column">
-        <Link
-          href="/reservation"
-          color="primary"
-          underline="hover"
-          sx={{ margin: "1rem" }}
-        >
-          Reservation
-        </Link>
-        <Link
-          href="/login"
-          color="primary"
-          underline="hover"
-          sx={{ margin: "1rem" }}
-        >
-          Order Online
-        </Link>
-        <Link
-          href="/login"
-          color="primary"
-          underline="hover"
-          sx={{ margin: "1rem" }}
-        >
-          Login
-        </Link>
-      </Grid>
-      <Grid item lg={2}>
-        <Card elevation={0} sx={{ minHeight: "148px" }}>
-          <CardContent>
-            <Typography variant="h5" mb={2}>
-              Contact
-            </Typography>
-            <Typography variant="body2">
-              Address: Little Lemon Building
-              <br />
-              <br />
-              Phone number: 1234-567
-              <br />
-              <br />
-              email: littlelemon@email.com
-            </Typography>
-          </CardContent>
-        </Card>
-      </Grid>
-      <Grid item lg={2}>
-        <Card elevation={0} sx={{ minHeight: "148px" }}>
-          <CardContent>
-            <Typography variant="h5" mb={2}>
-              Social Media
-            </Typography>
-            <Typography variant="body2">
-              Facebook: Little Lemon
-              <br />
-              <br />
-              Instagram: littlelemon
-            </Typography>
-          </CardContent>
-        </Card>
-      </Grid>
-      <Grid item lg={2} />
-    </Grid>
+          <img src={logo} alt="logo" />
+        </Box>
+        {!isBelowMd && (
+          <Box p={2}>
+            <Grid container spacing={6}>
+              {links.map((link, i) => (
+                <Grid item key={i}>
+                  <Link
+                    href={link.href}
+                    underline="none"
+                    color={"primary.dark"}
+                  >
+                    {link.title}
+                  </Link>
+                </Grid>
+              ))}
+            </Grid>
+          </Box>
+        )}
+      </Box>
+    </>
   );
 };
 

@@ -1,69 +1,90 @@
-import React from "react";
-import { Box, Link, Grid } from "@mui/material";
+import { useState } from "react";
+import { Box, Drawer, Grid, IconButton, Link } from "@mui/material";
+import { useTheme } from "@mui/material/styles";
+import useMediaQuery from "@mui/material/useMediaQuery";
 
 import ComapnyLogo from "../assets/Logo.svg";
+import MenuIcon from "@mui/icons-material/Menu";
+
+import { links } from "./links";
 
 const Nav = () => {
+  const [openSidebar, setOpenSidebar] = useState(false);
+  const theme = useTheme();
+  const isBelowMd = useMediaQuery(theme.breakpoints.down("md"));
+
+  const handleSidebar = () => {
+    setOpenSidebar((prevState) => !prevState);
+  };
+
   return (
-    <Grid item lg={12} container sx={{ alignItems: "center" }}>
-      <Grid item lg={2} />
-      <Grid item lg={2}>
-        <Box>
-          <img src={ComapnyLogo} alt="Company Logo" className="logo" />
+    <>
+      <Box
+        display={"flex"}
+        justifyContent={"space-between"}
+        alignItems={"center"}
+        width={"100%"}
+        mb={4}
+      >
+        <Box
+          display={"flex"}
+          alignItems="baseline"
+          component="a"
+          underline="none"
+          href="/"
+          title="little lemon"
+          height={{ xs: 28, md: 32 }}
+          width={45}
+        >
+          <img src={ComapnyLogo} alt="logo" />
         </Box>
-      </Grid>
-      <Grid item lg={6} container sx={{ justifyContent: "space-between" }}>
-        <Link
-          href="/"
-          color="primary"
-          underline="hover"
-          sx={{ margin: "1rem" }}
+        {!isBelowMd && (
+          <Box p={2}>
+            <Grid container spacing={6}>
+              {links.map((link, i) => (
+                <Grid item key={i}>
+                  <Link
+                    href={link.href}
+                    underline="none"
+                    color={"primary.dark"}
+                  >
+                    {link.title}
+                  </Link>
+                </Grid>
+              ))}
+            </Grid>
+          </Box>
+        )}
+        {isBelowMd && (
+          <Box>
+            <IconButton onClick={handleSidebar} aria-label="Navigation Bar">
+              <MenuIcon />
+            </IconButton>
+          </Box>
+        )}
+      </Box>
+      {/* below md: sidebar */}
+      {isBelowMd && (
+        <Drawer
+          anchor="right"
+          onClose={() => handleSidebar()}
+          open={openSidebar}
+          variant="temporary"
         >
-          Home
-        </Link>
-        <Link
-          href="/"
-          color="primary"
-          underline="hover"
-          sx={{ margin: "1rem" }}
-        >
-          About
-        </Link>
-        <Link
-          href="/"
-          color="primary"
-          underline="hover"
-          sx={{ margin: "1rem" }}
-        >
-          Menu
-        </Link>
-        <Link
-          href="/reservation"
-          color="primary"
-          underline="hover"
-          sx={{ margin: "1rem" }}
-        >
-          Reservation
-        </Link>
-        <Link
-          href="/login"
-          color="primary"
-          underline="hover"
-          sx={{ margin: "1rem" }}
-        >
-          Order Online
-        </Link>
-        <Link
-          href="/login"
-          color="primary"
-          underline="hover"
-          sx={{ margin: "1rem" }}
-        >
-          Login
-        </Link>
-      </Grid>
-      <Grid item lg={2} />
-    </Grid>
+          <Box p={2}>
+            <Grid container spacing={1} flexDirection={"column"} width={"30vw"}>
+              {links.map((link, i) => (
+                <Grid item key={i}>
+                  <Link href={link.href} underline="none" color={"black"}>
+                    {link.title}
+                  </Link>
+                </Grid>
+              ))}
+            </Grid>
+          </Box>
+        </Drawer>
+      )}
+    </>
   );
 };
 
