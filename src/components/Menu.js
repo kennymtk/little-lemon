@@ -59,7 +59,7 @@ const Menu = () => {
                 textDecoration: "none",
               }}
             >
-              <Card width={"100%"} height={"100%"} borderRadius={3}>
+              <Card width={"100%"} height={"100%"}>
                 <CardMedia
                   image={item.media}
                   title={item.title}

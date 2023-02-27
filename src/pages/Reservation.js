@@ -1,7 +1,13 @@
-import React from "react";
+import { Nav, BookingForm } from "../components";
+import { Container } from "@mui/material";
 
 const Reservation = () => {
-  return <div>Reservation</div>;
+  return (
+    <Container>
+      <Nav />
+      <BookingForm />
+    </Container>
+  );
 };
 
 export default Reservation;

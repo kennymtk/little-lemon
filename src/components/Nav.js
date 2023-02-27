@@ -71,11 +71,15 @@ const Nav = () => {
           open={openSidebar}
           variant="temporary"
         >
-          <Box p={2}>
-            <Grid container spacing={1} flexDirection={"column"} width={"30vw"}>
+          <Box p={4} mt={3}>
+            <Grid container spacing={6} flexDirection={"column"} width={"30vw"}>
               {links.map((link, i) => (
                 <Grid item key={i}>
-                  <Link href={link.href} underline="none" color={"black"}>
+                  <Link
+                    href={link.href}
+                    underline="none"
+                    color={"primary.dark"}
+                  >
                     {link.title}
                   </Link>
                 </Grid>
